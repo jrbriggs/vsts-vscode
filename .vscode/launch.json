@@ -1,28 +1,33 @@
 // A launch configuration that compiles the extension and then opens it inside a new window
 // "preLaunchTask": "npm"
 {
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Launch Extension",
 			"type": "extensionHost",
 			"request": "launch",
+			"name": "Launch Extension",
 			"runtimeExecutable": "${execPath}",
-			"args": ["--extensionDevelopmentPath=${workspaceRoot}" ],
-			"stopOnEntry": false,
-			"sourceMaps": true,
-			"outDir": "${workspaceRoot}/out/src",
-			"preLaunchTask": "publishbuild"
+			"args": [
+				"--extensionDevelopmentPath=${workspaceFolder}"
+			],
+			"outFiles": [
+				"${workspaceFolder}/out/**/*.js"
+			],
+			"preLaunchTask": "publishall"
 		},
 		{
 			"name": "Launch Tests",
 			"type": "extensionHost",
 			"request": "launch",
 			"runtimeExecutable": "${execPath}",
-			"args": ["--extensionDevelopmentPath=${workspaceRoot}", "--extensionTestsPath=${workspaceRoot}/out/test" ],
-			"stopOnEntry": false,
-			"sourceMaps": true,
-			"outDir": "${workspaceRoot}/out/test",
+			"args": [
+				"--extensionDevelopmentPath=${workspaceRoot}",
+				"--extensionTestsPath=${workspaceRoot}/out/test"
+			],
+			"outFiles": [
+				"${workspaceFolder}/out/**/*.js"
+			],
 			"preLaunchTask": "publishall"
 		},
 		{
@@ -30,10 +35,13 @@
 			"type": "extensionHost",
 			"request": "launch",
 			"runtimeExecutable": "${execPath}",
-			"args": ["--extensionDevelopmentPath=${workspaceRoot}", "--extensionTestsPath=${workspaceRoot}/out/test-integration" ],
-			"stopOnEntry": false,
-			"sourceMaps": true,
-			"outDir": "${workspaceRoot}/out/test-integration",
+			"args": [
+				"--extensionDevelopmentPath=${workspaceRoot}",
+				"--extensionTestsPath=${workspaceRoot}/out/test"
+			],
+			"outFiles": [
+				"${workspaceFolder}/out/**/*.js"
+			],
 			"preLaunchTask": "publishall"
 		}
 	]
